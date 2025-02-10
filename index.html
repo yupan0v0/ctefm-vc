@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/custom.css">
 	<link rel="stylesheet" href="css/normalize.css">
 
-	<title>TakinVC Homepage</title>
+	<title>CTEFM-VC Homepage</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 
   <style>
@@ -47,50 +47,36 @@
 
 <div class="container pt-5 mt-5 p-3 mb-5 rounded">
 	<div class="text-center">
-	<!-- <h2>Takin: A Cohort of Superior Quality Zero-shot Speech Generation Models </h2> -->
-	<div class="text-center">
 		<h2>
             <img src="pics/takin-icon.png" alt="icon" style="width:56px; height:48px; vertical-align:middle; margin-right:10px;">
-            Takin-VC: Zero-shot Voice Conversion via Jointly Hybrid Content and Memory-Augmented Context-Aware Timbre Modeling
+            CTEFM-VC: Zero-Shot Voice Conversion Based on Content-Aware Timbre Ensemble Modeling and Flow Matching
         </h2>
 
-      <!-- [<a href="https://arxiv.org/abs/2409.12139">Paper</a>] -->
-      [<a href="paper/TakinVC.pdf">Paper</a>]
-		[<a href="https://zhufengai.ximalaya.com/">Official Website</a>]
+      [<a href="paper/CTEFM-VC.pdf">Paper</a>]
         <p class="fst-italic mb-0">
 			<br>
-			<b>Everest Team</b>
 		<p></p>
         </p>
-        <p>Ximalaya Inc.</p>
 	</div>
 	<p style="text-align: left"><b>Abstract:</b>
-<!--		Introduce TakinVC, ....-->
-		In this paper, we propose Takin-VC,
-		a novel zero-shot VC framework based on jointly hybrid content and memory-
-		augmented context-aware timbre modeling to tackle this challenge. Specifically,
-		an effective hybrid content encoder, guided by neural codec training, that lever-
-		ages quantized features from pre-trained HybridFormer and WavLM is first pre-
-		sented to extract the linguistic content of the source speech. 
-	<!-- <p style="text-align: center;">
-		<img src="pics/takin-tts-emo.png" height="480" width="1280">
-	</p> -->
+	        In this paper, we propose CTEFM-VC, a zero-shot VC framework that integrates Content-aware Timbre Ensemble modeling and Flow Matching. Specifically, 
+		CTEFM-VC decouples utterances into content and timbre representations and leverages a conditional flow matching model to reconstruct the 
+		Mel-spectrogram of the source speech. To enhance its timbre modeling capability and the naturalness of generated speech, we introduce a 
+		context-aware timbre ensemble approach that adaptively integrates diverse speaker verification embeddings and enables the joint utilization of source content 
+		and target timbre through a cross-attention module. Experimental results show that CTEFM-VC outperforms state-of-the-art VC systems, 
+		achieving better speaker similarity, inference speed, and superior speech naturalness.
 	</p>
 
 
-
-<!------ Application -------------------------->
-
-<!------ Takin VC -------------------------->
 <div class="container pt-5 mt-5 p-3 mb-5 bg-body-tertiary bg-light bg-opacity-50 rounded">
-    <h2 id="overview" style="text-align: center;">Overview of Takin VC</h2>
+    <h2 id="overview" style="text-align: center;">Overview of CTEFM-VC</h2>
     <body>
         <p style="text-align: center;">
-            <img src="pics/takin-vc-main.png" height="400" width="1024">
+            <img src="pics/ctefm-vc.png" height="400" width="1024">
         </p>
     </body>
     <p style="text-align: center;" >
-        An overall summary of Takin VC model. 
+        Overall training architecture of the proposed CTEFM-VC system. 
     </p>
 </div>
 
@@ -102,183 +88,82 @@
 				<tbody>
 					<tr>
 						<th colspan="1" style="vertical-align: middle;text-align: center">Source</th>
-						<th colspan="1" style="vertical-align: middle;text-align: center">Prompt</th>
+						<th colspan="1" style="vertical-align: middle;text-align: center">Target</th>
 						<th colspan="1" style="vertical-align: middle;text-align: center">DiffVC</th>
 						<th colspan="1" style="vertical-align: middle;text-align: center">NS2VC</th>
 						<th colspan="1" style="vertical-align: middle;text-align: center">VALLE-VC</th>
 						<th colspan="1" style="vertical-align: middle;text-align: center">SEFVC</th>
-						<th colspan="1" style="vertical-align: middle;text-align: center">Takin-VC</th>
+						<th colspan="1" style="vertical-align: middle;text-align: center">CTEFM-VC</th>
 					</tr>
 
 					<tr>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/1919_142785_000067_000003.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/vctk_p226.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/diffvc_1919_142785_000067_000003-vctk_p226.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ns2_1919_142785_000067_000003_auto_vctk_p226.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/valle_1919_142785_000067_000003_vctk_p226.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/1919_142785_000067_000003-vctk_p226.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/prompt_vctk_p226_src_1919_142785_000067_000003.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/source/84_121550_000015_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/prompt/vctk_p229.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/diffvc/diffvc_84_121550_000015_000000-vctk_p229.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ns2vc/ns2_84_121550_000015_000000_auto_vctk_p229.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/valle-vc/valle_84_121550_000015_000000_vctk_p229.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/sefvc/84_121550_000015_000000-vctk_p229.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ctefm-vc/vctk_p229_84_121550_000015_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
 					</tr>
 
 					<tr>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/8842_302201_000007_000003.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/vctk_p227.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/diffvc_8842_302201_000007_000003-vctk_p227.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ns2_8842_302201_000007_000003_auto_vctk_p227.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/valle_8842_302201_000007_000003_vctk_p227.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/8842_302201_000007_000003-vctk_p227.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/prompt_vctk_p227_src_8842_302201_000007_000003.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/source/84_121550_000019_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/prompt/vctk_p237.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/diffvc/diffvc_84_121550_000019_000000-vctk_p237.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ns2vc/ns2_84_121550_000019_000000_auto_vctk_p237.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/valle-vc/valle_84_121550_000019_000000_vctk_p237.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/sefvc/84_121550_000019_000000-vctk_p237.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ctefm-vc/vctk_p237_84_121550_000019_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
 					</tr>
 
 					<tr>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/2803_154328_000004_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/vctk_p228.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/diffvc_2803_154328_000004_000000-vctk_p228.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ns2_2803_154328_000004_000000_auto_vctk_p228.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/valle_2803_154328_000004_000000_vctk_p228.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/2803_154328_000004_000000-vctk_p228.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/prompt_vctk_p228_src_2803_154328_000004_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/source/1919_142785_000067_000003.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/prompt/vctk_p226.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/diffvc/diffvc_1919_142785_000067_000003-vctk_p226.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ns2vc/ns2_1919_142785_000067_000003_auto_vctk_p226.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/valle-vc/valle_1919_142785_000067_000003_vctk_p226.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/sefvc/1919_142785_000067_000003-vctk_p226.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ctefm-vc/vctk_p226_1919_142785_000067_000003.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
 					</tr>
 
 					<tr>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/84_121550_000015_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/vctk_p229.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/diffvc_84_121550_000015_000000-vctk_p229.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ns2_84_121550_000015_000000_auto_vctk_p229.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/valle_84_121550_000015_000000_vctk_p229.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/84_121550_000015_000000-vctk_p229.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/prompt_vctk_p229_src_84_121550_000015_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/source/2803_154328_000004_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/prompt/vctk_p228.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/diffvc/diffvc_2803_154328_000004_000000-vctk_p228.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ns2vc/ns2_2803_154328_000004_000000_auto_vctk_p228.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/valle-vc/valle_2803_154328_000004_000000_vctk_p228.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/sefvc/2803_154328_000004_000000-vctk_p228.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ctefm-vc/vctk_p228_2803_154328_000004_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
 					</tr>
 
 					<tr>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/7976_110523_000006_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/vctk_p232.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/diffvc_7976_110523_000006_000000-vctk_p232.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ns2_7976_110523_000006_000000_auto_vctk_p232.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/valle_7976_110523_000006_000000_vctk_p232.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/7976_110523_000006_000000-vctk_p232.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/prompt_vctk_p232_src_7976_110523_000006_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/source/7976_110523_000006_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/prompt/vctk_p232.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/diffvc/diffvc_7976_110523_000006_000000-vctk_p232.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ns2vc/ns2_7976_110523_000006_000000_auto_vctk_p232.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/valle-vc/valle_7976_110523_000006_000000_vctk_p232.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/sefvc/7976_110523_000006_000000-vctk_p232.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ctefm-vc/vctk_p232_7976_110523_000006_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
 					</tr>
 
 					<tr>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/84_121550_000019_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/vctk_p237.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/diffvc_84_121550_000019_000000-vctk_p237.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ns2_84_121550_000019_000000_auto_vctk_p237.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/valle_84_121550_000019_000000_vctk_p237.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/84_121550_000019_000000-vctk_p237.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/prompt_vctk_p237_src_84_121550_000019_000000.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/source/8842_302201_000007_000003.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/prompt/vctk_p227.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/diffvc/diffvc_8842_302201_000007_000003-vctk_p227.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ns2vc/ns2_8842_302201_000007_000003_auto_vctk_p227.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/valle-vc/valle_8842_302201_000007_000003_vctk_p227.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/sefvc/8842_302201_000007_000003-vctk_p227.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
+						<td style="vertical-align : top;text-align:center;"><audio controls="controls" "><source src="audios/baseline/ctefm-vc/vctk_p227_8842_302201_000007_000003.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
 					</tr>
-
-				</tbody>
-			</table>
-		</div>
-</div>
-
-
-
-<!------ VC -------------------------->
-
-<div class="container pt-5 mt-5 p-3 mb-5 bg-body-tertiary bg-light bg-opacity-50 rounded">
-	<h2 id="App-S2ST-7" style="text-align: center;">Paralinguistic Zero-shot Voice Conversion</h2>
-	</p>
-		<div class="table-responsive pt-1">
-			<table class="table table-hover pt-2">
-				<tbody>
-					<tr>
-						<th colspan="1" style="vertical-align: middle;text-align: center; width: 200px;">Source</th>
-						<th colspan="1" style="vertical-align: middle;text-align: center; width: 200px;">Prompt</th>
-						<th colspan="1" style="vertical-align: middle;text-align: center; width: 200px;">PPG Generated</th>
-						<th colspan="1" style="vertical-align: middle;text-align: center; width: 200px;">PPG+WavLM Generated</th>
-					</tr>
-
-					<tr>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/para/zh-cn_shenlige_joy_79.mp3" autoplay/>Your browser does not support the audio element.</audio><br>Laughing</td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 220px;"><source src="audios/para/ajar_325_男主_盛凉-prompt-1.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 220px;"><source src="audios/para/ajar_325_男主_盛凉-prompt-1_zh-cn_shenlige_joy_79-ppg.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 220px;"><source src="audios/para/ajar_325_男主_盛凉-prompt-1_zh-cn_shenlige_joy_79-ppg++.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-					</tr>
-
-					<tr>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/para/zh-cn_shenlige_fear_16.mp3" autoplay/>Your browser does not support the audio element.</audio><br>Inhaling Sound</td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 220px;"><source src="audios/para/ad00026-prompt-1.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 220px;"><source src="audios/para/ad00026-prompt-1_zh-cn_shenlige_fear_16-ppg.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 220px;"><source src="audios/para/ad00026-prompt-1_zh-cn_shenlige_fear_16-ppg++.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-					</tr>
-
-					<tr>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/para/zh-cn_shenlige_sadness_57.mp3" autoplay/>Your browser does not support the audio element.</audio><br>Hush Sound & Cry</td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 220px;"><source src="audios/para/ad00008-prompt-1.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 220px;"><source src="audios/para/ad00008-prompt-1_zh-cn_shenlige_sadness_57-ppg.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 220px;"><source src="audios/para/ad00008-prompt-1_zh-cn_shenlige_sadness_57-ppg++.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-					</tr>
-
-				</tbody>
-			</table>
-		</div>
-</div>
-
-<div class="container pt-5 mt-5 p-3 mb-5 bg-body-tertiary bg-light bg-opacity-50 rounded">
-	<h2 id="App-S2ST-7" style="text-align: center;">Zero-Shot Voice Conversion Across Genders and Languages</h2>
-	</p>
-		<div class="table-responsive pt-3">
-			<table class="table table-hover pt-2">
-				<tbody>
-				  <tr>
-              <th colspan="1" style="vertical-align: middle;text-align: center; width: 300px;">Type</th>
-              <th colspan="1" style="vertical-align: middle;text-align: center">Source</th>
-              <th colspan="1" style="vertical-align: middle;text-align: center">Prompt</th>
-              <th colspan="1" style="vertical-align: middle;text-align: center">Generated</th>
-              <th style="vertical-align: middle;text-align: center"> </th>				
-				  </tr>
-
-					<tr>
-						<td style="vertical-align: middle;text-align:center;">[CN] Male-to-Male</td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/male-source.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/male-prompt.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/male-targetwav.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-					</tr>
-
-					<tr>
-						<td style="vertical-align: middle;text-align:center;">[CN] Male-to-Female</td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/m2f-source.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/m2f-prompt.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/m2f-targetwav.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-					</tr>
-
-					<tr>
-						<td style="vertical-align: middle;text-align:center;">[CN] Female-to-Female</td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/female-source.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/female-prompt.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/female-targetwav.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-					</tr>
-
-					<tr>
-						<td style="vertical-align: middle;text-align:center;">[CN] Female-to-Male</td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/f2m-source.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/f2m-prompt.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/f2m-targetwav.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-					</tr>
-
-					<tr>
-						<td style="vertical-align: middle;text-align:center;">[EN] Male-to-Male</td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/en-male-source.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/en-male-prompt.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/en-male-targetwav.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-					</tr>
-
-					<tr>
-						<td style="vertical-align: middle;text-align:center;">[EN] Female-to-Female</td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/en-female-source.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/en-female-prompt.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-						<td style="vertical-align : top;text-align:center;"><audio controls="controls" style="width: 240px;"><source src="audios/vc/en-female-targetwav.mp3" autoplay/>Your browser does not support the audio element.</audio><br></td>
-					</tr>
-
 					
 				</tbody>
 			</table>
 		</div>
 </div>
+
+
+
+
 
 
 
